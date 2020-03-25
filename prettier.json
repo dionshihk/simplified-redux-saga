@@ -1,0 +1,15 @@
+{
+    "tabWidth": 2,
+    "printWidth": 200,
+    "trailingComma": "es5",
+    "bracketSpacing": false,
+    "arrowParens": "avoid",
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx", "*.js"],
+            "options": {
+                "tabWidth": 4
+            }
+        }
+    ]
+}
