@@ -11,7 +11,7 @@
     "typescript": "3.8.3"
   },
   "scripts": {
-    "format": "./node_modules/.bin/prettier --config prettier.json --write \"src/**/*.{ts,js,tsx,jsx}\"",
-    "test": "./node_modules/.bin/ts-node src/test.ts"
+    "format": "prettier --config prettier.json --write \"src/**/*.{ts,js,tsx,jsx}\"",
+    "test": "ts-node src/test.ts"
   }
 }
