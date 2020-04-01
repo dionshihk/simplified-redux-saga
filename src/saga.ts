@@ -4,7 +4,7 @@ export type Saga = () => IterableIterator<any>;
 
 function runSagaIterator(result: IterableIterator<any>, onFinalReturn?: (value: any) => void) {
     const currentSagaId = getUniqueId();
-    const sagaLog = (text: string) => console.info(`saga<${currentSagaId}>: ${text}`);
+    const sagaLog = (text: string) => console.info(`[saga #${currentSagaId}]: ${text}`);
 
     const handleIterableResult = (t: IteratorResult<any>) => {
         if (!t.done) {
