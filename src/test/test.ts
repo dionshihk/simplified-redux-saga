@@ -1,4 +1,4 @@
-import {runSaga} from "../saga";
+import {runSaga} from "../run-saga";
 import {sleep} from "../util";
 
 function* f() {
