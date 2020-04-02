@@ -1,4 +1,5 @@
 import {getUniqueId} from "./util";
+import {SagaEffect, SagaMagicCode} from "./effect/type";
 
 export type Saga = () => IterableIterator<any>;
 
@@ -13,8 +14,12 @@ function runSagaIterator(result: IterableIterator<any>, onFinalReturn?: (value: 
                 sagaLog("yield Promise");
                 yieldedExpression.then(resolvedResult => handleIterableResult(result.next(resolvedResult)));
             } else if (yieldedExpression && typeof yieldedExpression.next === "function") {
-                sagaLog("yield saga");
+                sagaLog("yield Saga");
                 runSagaIterator(yieldedExpression, finalReturnValue => handleIterableResult(result.next(finalReturnValue)));
+            } else if (typeof yieldedExpression === "object" && yieldedExpression.sagaMagic === SagaMagicCode) {
+                sagaLog("yield SagaEffect");
+                const effect = yieldedExpression as SagaEffect<any>;
+                effect.execute(effectResult => handleIterableResult(result.next(effectResult)));
             } else {
                 sagaLog("yield normal value");
                 handleIterableResult(result.next(yieldedExpression));

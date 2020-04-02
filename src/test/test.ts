@@ -1,5 +1,5 @@
-import {runSaga} from "./saga";
-import {sleep} from "./util";
+import {runSaga} from "../saga";
+import {sleep} from "../util";
 
 function* f() {
     console.info("start");
