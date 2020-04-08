@@ -1,4 +1,4 @@
-import {Middleware, MiddlewareAPI, Store} from "redux";
+import {Middleware, MiddlewareAPI} from "redux";
 import {onActionComing} from "./taker";
 
 let globalStore: MiddlewareAPI | null;
